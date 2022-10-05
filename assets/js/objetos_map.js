@@ -12,6 +12,7 @@ let valorDigitado = () => {
   });
   console.log(triplica);
   resultadoDiv.innerText = triplica.join(",");
+  resultadoDiv.removeAttribute("hidden");
   limpaInput();
 };
 
