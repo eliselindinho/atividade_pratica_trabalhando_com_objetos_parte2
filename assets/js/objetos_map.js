@@ -4,10 +4,24 @@ let numero = document.getElementById("numero");
 let arrValores = [];
 let resultadoDiv = document.getElementById("resultado");
 
-let valorDigitado = btnCalcular.map(function (numeroDigitado) {
-  return numeroDigitado.arrValores;
-  console.log(valorDigitado(numero));
-});
+let valorDigitado = () => {
+  let valorInput = numero.value;
+  arrValores.push(valorInput);
+  let triplica = arrValores.map(function (item) {
+    return item * 3;
+  });
+  console.log(triplica);
+  resultadoDiv.innerText = triplica.join(",");
+  limpaInput();
+};
 
-btnCalcular.addEventListener("click", arrValores);
-btnLimpar.addEventListener("click");
+let limpaInput = () => {
+  numero.value = "";
+};
+let limparFormulario = () => {
+  arrValores = [];
+  resultadoDiv.setAttribute("hidden", "false");
+};
+
+btnCalcular.addEventListener("click", valorDigitado);
+btnLimpar.addEventListener("click", limparFormulario);
